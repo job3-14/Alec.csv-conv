@@ -67,9 +67,9 @@ Python 3.10.9
 | 投函予定メール利用区分                         | None                                                           | scheduledMailUsageClassification |
 | 投函予定メールe-mailアドレス                   | None                                                           | scheduledMailUsageEmailAddress
 | 投函予定メールメッセージ                       | None                                                           | scheduledMailUsageEmailMessage |
-| 投函完了メール（お届け先宛）利用区分           | None                                                           | MailingCompletionRrecipientUsageCategory |
-| 投函完了メール（お届け先宛）e-mailアドレス     | None                                                           | MailingCompletionRrecipientAddres |
-| 投函完了メール（お届け先宛）メールメッセージ   | None                                                           | MailingCompletionRrecipientMessage |
-| 投函完了メール（ご依頼主宛）利用区分           | None                                                           | MailingCompletionclientUsageCategory |
-| 投函完了メール（ご依頼主宛）e-mailアドレス | None                                                           | MailingCompletionclientUsageAddress |
-| 投函完了メール（ご依頼主宛）メールメッセージ   | None                                                           | MailingCompletionclientUsageMessage |
+| 投函完了メール（お届け先宛）利用区分           | None                                                           | mailingCompletionRrecipientUsageCategory |
+| 投函完了メール（お届け先宛）e-mailアドレス     | None                                                           | mailingCompletionRrecipientAddres |
+| 投函完了メール（お届け先宛）メールメッセージ   | None                                                           | mailingCompletionRrecipientMessage |
+| 投函完了メール（ご依頼主宛）利用区分           | None                                                           | mailingCompletionclientUsageCategory |
+| 投函完了メール（ご依頼主宛）e-mailアドレス | None                                                           | mailingCompletionclientUsageAddress |
+| 投函完了メール（ご依頼主宛）メールメッセージ   | None                                                           | mailingCompletionclientUsageMessage |
