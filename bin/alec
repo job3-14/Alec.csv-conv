@@ -1,0 +1,31 @@
+#!/bin/bash
+# alec ラッパースクリプト
+
+# 少なくとも1つの引数が必要（サブコマンド: yamato か ship）
+if [ "$#" -lt 1 ]; then
+    echo "Usage: alec [yamato|ship] [追加の引数...]"
+    exit 1
+fi
+
+# 最初の引数をサブコマンドとして取得
+subcommand=$1
+shift  # サブコマンドを引数リストから削除して、残りの引数をそのまま渡す
+
+# サブコマンドに応じたPythonスクリプトのパスを設定
+case "$subcommand" in
+    yamato)
+        script="$HOME/.alec/add_yamato.py"
+        ;;
+    ship)
+        script="$HOME/.alec/shipping.py"
+        ;;
+    *)
+        echo "不明なサブコマンド: $subcommand"
+        exit 1
+        ;;
+esac
+
+# 実行対象のPythonスクリプトを実行
+# ※対象のPythonスクリプトにシバン行 (例: #!/usr/bin/env python3) と実行権限がある前提です。
+exec "$script" "$@"
+

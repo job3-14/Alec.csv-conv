@@ -1,0 +1,2 @@
+### alec ###
+export PATH="$HOME/bin:$PATH"
