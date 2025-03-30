@@ -10,11 +10,40 @@ import os
 import sys
 import webbrowser
 
+
+def ignore_ship(orders_add_csv_data):
+    """
+    ignore_mecrari.csvを読み込み該当する注文IDを削除
+    """
+    ignore_csv_path = os.path.expanduser('~/.alec/ignore_mercari.csv')
+    try:
+        with open(ignore_csv_path) as f:
+            reader = csv.reader(f)
+            ignore_csv_data = [row for row in reader]
+    except Exception as e:
+        print("エラー： ~/.alec/ignore_merceri.csvを開くことができません.")
+        sys.exit()
+    
+    ignore_data = []
+    for i in range(1, len(ignore_csv_data)):
+        ignore_data.append(ignore_csv_data[i][0])
+
+    for i in range(len(orders_add_csv_data) - 1, 0, -1):  # 逆順ループ
+        if orders_add_csv_data[i][0] in ignore_data:
+            del orders_add_csv_data[i]
+            
+    return orders_add_csv_data
+    
+    
+
+
+
 def main():
     # config.ini読み込み
     config_ini = configparser.ConfigParser()
     config_path = os.path.expanduser('~/.alec/config.ini')
     config_ini.read(config_path, encoding='utf-8')
+
 
     # メルカリCSV(B2仕様)読み込み
     orders_csv_path = os.path.expanduser('~/Downloads/orders.csv')
@@ -39,6 +68,9 @@ def main():
         data[39] = config_ini['DEFAULT']['billing_customer_code']
         data[41] = config_ini['DEFAULT']['freight_control_number']
         csv_data[i] = data
+    
+    # ignoreデータを削除
+    csv_data = ignore_ship(csv_data)
 
     # 補完後のCSVを書き出す
     orders_add_csv_path = os.path.expanduser('~/Desktop/orders_add.csv')
